@@ -24,4 +24,6 @@ Route::controller(MasterNegaraController::class)->prefix('master')->group(functi
 
 Route::controller(MasterGenreController::class)->prefix('master')->group(function () {
     Route::get('/genre', 'index')->name('genre.index');
+    Route::get('/genre/add', 'add')->name('genre.add');
+    Route::post('/genre/add', 'store');
 });
