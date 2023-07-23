@@ -26,7 +26,8 @@ Route::controller(MasterNegaraController::class)->prefix('master')->group(functi
 Route::controller(MasterGenreController::class)->prefix('master')->group(function () {
     Route::get('/genre', 'index')->name('genre.index');
     Route::get('/genre/add', 'add')->name('genre.add');
-    Route::post('/genre/add', 'store');
+    Route::post('/genre/add', 'store')->name('genre.store');
     Route::get('/genre/{id}/edit', 'edit')->name('genre.edit');
     Route::put('/genre/edit/{id}', 'update')->name('genre.update');
+    Route::delete('/genre/{id}', 'destroy')->name('genre.destroy');
 });

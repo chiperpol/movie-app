@@ -66,4 +66,17 @@ class MasterGenreController extends Controller
 
         return redirect()->route('genre.index')->with('success', 'Data berhasil diupdate.');
     }
+
+    public function destroy($id)
+    {
+        $genre = Genre::find($id);
+
+        if (!$genre) {
+            return redirect()->route('genre.index')->with('error', 'DATA GENRE TIDAK DITEMUKAN!');
+        }
+
+        $genre->delete();
+
+        return redirect()->route('genre.index')->with('success', 'DATA BERHASIL DIHAPUS!');
+    }
 }

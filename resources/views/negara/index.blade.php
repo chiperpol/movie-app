@@ -65,7 +65,7 @@
                                     <form method="POST" action="{{ route('negara.destroy', $negara->id) }}">
                                         @method('DELETE')
                                         @csrf
-                                        <button type="submit" class="main__table-btn main__table-btn--delete show_confirm" data-nama-negara="{{ $negara->nama_negara }}">
+                                        <button type="submit" class="main__table-btn main__table-btn--delete delete_confirm" data-nama-negara="{{ $negara->nama_negara }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10,18a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,10,18ZM20,6H16V5a3,3,0,0,0-3-3H11A3,3,0,0,0,8,5V6H4A1,1,0,0,0,4,8H5V19a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V8h1a1,1,0,0,0,0-2ZM10,5a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V6H10Zm7,14a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V8H17Zm-3-1a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,14,18Z"/></svg>
                                         </button>
                                     </form>
@@ -121,7 +121,7 @@
 @section('javascript')
 <script type="text/javascript">
 
-    $('.show_confirm').click(function(event) {
+    $('.delete_confirm').click(function(event) {
         var form =  $(this).closest("form");
         var namaNegara = $(this).data('nama-negara');
 
@@ -139,8 +139,8 @@
         if (result.isConfirmed) {
             form.submit();
             Swal.fire(
-            'Deleted!',
-            'Your data has been deleted.',
+            'Berhasil!',
+            'Negara ' + namaNegara + 'berhasil dihapus.',
             'success'
             )
         }
