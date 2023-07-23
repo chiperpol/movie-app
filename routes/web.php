@@ -18,7 +18,7 @@ Route::controller(MasterNegaraController::class)->prefix('master')->group(functi
     Route::get('/negara/add', 'add')->name('negara.add');
     Route::post('/negara/add', 'store');
     Route::get('/negara/{id}/edit', 'edit')->name('negara.edit');
-    Route::put('/negara/edit/{id}', 'update');
+    Route::put('/negara/edit/{id}', 'update')->name('negara.update');
 });
 
 
@@ -26,4 +26,6 @@ Route::controller(MasterGenreController::class)->prefix('master')->group(functio
     Route::get('/genre', 'index')->name('genre.index');
     Route::get('/genre/add', 'add')->name('genre.add');
     Route::post('/genre/add', 'store');
+    Route::get('/genre/{id}/edit', 'edit')->name('genre.edit');
+    Route::put('/genre/edit/{id}', 'update')->name('genre.update');
 });

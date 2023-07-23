@@ -34,4 +34,36 @@ class MasterGenreController extends Controller
 
         return redirect()->route('genre.index');
     }
+
+    public function edit($id)
+    {
+        $genre = Genre::find($id);
+
+        if (!$genre) {
+            return redirect()->route('genre.index')->with('error', 'DATA GENRE TIDAK DITEMUKAN!');
+        }
+
+        return view('genre.edit', compact('genre'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $genre = Genre::find($id);
+
+        if (!$genre) {
+            return redirect()->route('genre.index')->with('error', 'DATA NEGARA TIDAK DITEMUKAN!');
+        }
+
+        $request->validate([
+            'nama_genre' => 'required|string|max:50',
+            'status' => 'required|in: 1,0',
+        ]);
+
+        $genre->nama_genre = $request->input('nama_genre');
+        $genre->status = $request->input('status');
+
+        $genre->save();
+
+        return redirect()->route('genre.index')->with('success', 'Data berhasil diupdate.');
+    }
 }
