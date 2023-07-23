@@ -5,3 +5,4 @@
 <script src="{{ asset('admin') }}/js/smooth-scrollbar.js"></script>
 <script src="{{ asset('admin') }}/js/select2.min.js"></script>
 <script src="{{ asset('admin') }}/js/admin.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

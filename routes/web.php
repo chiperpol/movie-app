@@ -16,9 +16,10 @@ Route::get('/movies', [MoviesController::class, 'index'])->name('movies.index');
 Route::controller(MasterNegaraController::class)->prefix('master')->group(function () {
     Route::get('/negara', 'index')->name('negara.index');
     Route::get('/negara/add', 'add')->name('negara.add');
-    Route::post('/negara/add', 'store');
+    Route::post('/negara/add', 'store')->name('negara.store');
     Route::get('/negara/{id}/edit', 'edit')->name('negara.edit');
     Route::put('/negara/edit/{id}', 'update')->name('negara.update');
+    Route::delete('/negara/{id}', 'destroy')->name('negara.destroy');
 });
 
 

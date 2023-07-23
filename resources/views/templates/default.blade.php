@@ -17,6 +17,7 @@
 
 	<!-- JS -->
     @include('templates.partial.script')
+    @yield('javascript')
 </body>
 
 <!-- Mirrored from flixtv.volkovdesign.com/admin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 21 Jul 2023 09:15:22 GMT -->

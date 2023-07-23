@@ -67,4 +67,17 @@ class MasterNegaraController extends Controller
 
         return redirect()->route('negara.index')->with('success', 'Data berhasil diupdate.');
     }
+
+    public function destroy($id)
+    {
+        $negara = Negara::find($id);
+
+        if (!$negara) {
+            return redirect()->route('negara.index')->with('error', 'DATA NEGARA TIDAK DITEMUKAN!');
+        }
+
+        $negara->delete();
+
+        return redirect()->route('negara.index')->with('success', 'Data berhasil dihapus.');
+    }
 }
