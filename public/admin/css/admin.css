@@ -2429,6 +2429,7 @@ body::-webkit-scrollbar-thumb {
     width: calc(50% - 15px);
   }
 }
+
 .mfp-bg {
   background: rgba(19,23,32,0.8);
 }
