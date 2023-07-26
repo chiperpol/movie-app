@@ -56,6 +56,7 @@
             <ul class="collapse sidebar__menu" id="collapseMenu">
                 <li><a href="{{ route('negara.index') }}" class="{{ Request::is('master/negara') ? 'active' : '' }}">Negara</a></li>
                 <li><a href="{{ route('genre.index') }}" class="{{ Request::is('master/genre') ? 'active' : '' }}">Genre</a></li>
+                <li><a href="{{ route('quality.index') }}" class="{{ Request::is('master/quality') ? 'active' : '' }}">Quality</a></li>
             </ul>
         </li>
     </ul>

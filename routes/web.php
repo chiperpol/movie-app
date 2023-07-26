@@ -31,3 +31,10 @@ Route::controller(MasterGenreController::class)->prefix('master')->group(functio
     Route::put('/genre/edit/{id}', 'update')->name('genre.update');
     Route::delete('/genre/{id}', 'destroy')->name('genre.destroy');
 });
+
+Route::prefix('master')->group(function () {
+    Route::resource(
+        'quality',
+        App\Http\Controllers\MasterQualityController::class
+    );
+});
