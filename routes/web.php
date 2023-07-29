@@ -11,7 +11,10 @@ use App\Http\Controllers\MoviesController;
 Route::redirect('/', '/dashboard');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
 Route::get('/movies', [MoviesController::class, 'index'])->name('movies.index');
+Route::get('/movies/add', [MoviesController::class, 'add'])->name('movies.add');
+Route::post('/movies/add', [MoviesController::class, 'store'])->name('movies.store');
 
 Route::controller(MasterNegaraController::class)->prefix('master')->group(function () {
     Route::get('/negara', 'index')->name('negara.index');

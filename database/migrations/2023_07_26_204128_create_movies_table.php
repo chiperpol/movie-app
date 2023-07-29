@@ -15,16 +15,17 @@ return new class extends Migration
     {
         Schema::create('movies', function (Blueprint $table) {
             $table->id();
-            $table->string('judul', 100);
+            $table->string('judul', 225);
             $table->text('desc');
-            $table->integer('tahun_terbit', 20);
-            $table->integer('durasi', 100);
+            $table->unsignedBigInteger('tahun_terbit');
+            $table->unsignedBigInteger('durasi');
             $table->unsignedBigInteger('negara_id');
             $table->unsignedBigInteger('genre_id');
             $table->unsignedBigInteger('quality_id');
-            $table->text('cover');
-            $table->text('foto');
-            $table->text('film');
+            $table->longText('cover');
+            $table->longText('foto');
+            $table->longText('film');
+            $table->enum('status', [1, 0])->default(1);
             $table->timestamps();
         });
     }
