@@ -13,7 +13,7 @@
 
         <!-- form -->
         <div class="col-12">
-            <form action="{{ route('movies.store') }}" method="POST" class="form">
+            <form action="{{ route('movies.store') }}" method="POST" class="form" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-12 col-md-5 form__cover">

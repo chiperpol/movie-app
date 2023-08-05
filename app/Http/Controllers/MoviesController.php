@@ -7,6 +7,7 @@ use App\Models\Movies;
 use App\Models\Negara;
 use App\Models\Quality;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use PhpParser\Node\Expr\New_;
 
 class MoviesController extends Controller
@@ -37,8 +38,8 @@ class MoviesController extends Controller
             'negara_id' => 'required|exists:master_negara,id',
             'genre_id' => 'required|exists:master_genre,id',
             'quality_id' => 'required|exists:master_quality,id',
-            'cover' => 'required|string',
-            'foto' => 'required|string',
+            'cover' => 'required|file',
+            'foto' => 'required|file',
             'film' => 'required|string',
             'status' => 'required|in:1,0'
         ]);
@@ -52,10 +53,21 @@ class MoviesController extends Controller
         $movie->negara_id = $request->input('negara_id');
         $movie->genre_id = $request->input('genre_id');
         $movie->quality_id = $request->input('quality_id');
-        $movie->cover = $request->input('cover');
-        $movie->foto = $request->input('foto');
-        $movie->film = $request->input('film');
         $movie->status = $request->input('status');
+
+        if ($request->hasFile('cover')) {
+            $coverPath = $request->file('cover')->store('covers');
+            $movie->cover = $coverPath;
+        } else {
+            $movie->cover = 'covers/default.jpg';
+        }
+
+        if ($request->hasFile('foto')) {
+            $fotoPath = $request->file('foto')->store('fotos');
+            $movie->foto = $fotoPath;
+        } else {
+            $movie->foto = 'fotos/default.jpg';
+        }
 
         if ($request->hasFile('video') && $request->input('type_film') === 'video') {
             $videoPath = $request->file('video')->store('videos');

@@ -13,17 +13,17 @@ class Movies extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
 
-    public function negara()
+    public function negaras()
     {
         return $this->belongsTo(Negara::class, 'negara_id', 'id');
     }
 
-    public function genre()
+    public function genres()
     {
         return $this->belongsTo(Genre::class, 'genre_id', 'id');
     }
 
-    public function quality()
+    public function qualitys()
     {
         return $this->belongsTo(Quality::class, 'quality_id', 'id');
     }
