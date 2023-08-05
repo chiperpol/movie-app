@@ -15,6 +15,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::get('/movies', [MoviesController::class, 'index'])->name('movies.index');
 Route::get('/movies/add', [MoviesController::class, 'add'])->name('movies.add');
 Route::post('/movies/add', [MoviesController::class, 'store'])->name('movies.store');
+Route::delete('/movies/{id}', [MoviesController::class, 'destroy'])->name('movies.destroy');
 
 Route::controller(MasterNegaraController::class)->prefix('master')->group(function () {
     Route::get('/negara', 'index')->name('negara.index');

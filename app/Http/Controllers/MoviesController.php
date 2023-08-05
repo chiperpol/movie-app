@@ -80,4 +80,17 @@ class MoviesController extends Controller
 
         return redirect()->route('movies.index')->with('success', 'Film Berhasil ditambahkan!');
     }
+
+    public function destroy($id)
+    {
+        $movie = Movies::find($id);
+
+        if (!$movie) {
+            return redirect()->route('movies.index')->with('error', 'DATA NEGARA TIDAK DITEMUKAN!');
+        }
+
+        $movie->delete();
+
+        return redirect()->route('movies.index')->with('success', 'Data berhasil dihapus.');
+    }
 }
