@@ -10,6 +10,6 @@ class Genre extends Model
     use HasFactory;
 
     protected $table = 'master_genre';
-    protected $fillable = ['nama_negara', 'status'];
+    protected $fillable = ['nama_genre', 'status'];
     public $timestamps = true;
 }

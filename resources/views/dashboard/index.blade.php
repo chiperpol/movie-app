@@ -171,81 +171,31 @@
                             <tr>
                                 <th>ID</th>
                                 <th>TITLE</th>
-                                <th>CATEGORY</th>
+                                <th>GENRE</th>
                                 <th>STATUS</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($latestMovies as $movie)
                             <tr>
                                 <td>
-                                    <div class="main__table-text">26</div>
+                                    <div class="main__table-text">{{ $movie->id }}</div>
                                 </td>
                                 <td>
-                                    <div class="main__table-text"><a href="#">I Dream in Another Language</a></div>
+                                    <div class="main__table-text">{{ $movie->judul }}</div>
                                 </td>
                                 <td>
-                                    <div class="main__table-text">Movie</div>
+                                    <div class="main__table-text">{{ $movie->genres->nama_genre }}</div>
                                 </td>
                                 <td>
-                                    <div class="main__table-text main__table-text--green">Visible</div>
+                                    @if ($movie->status == 1)
+                                        <div class="main__table-text main__table-text--green">Show</div>
+                                    @else
+                                        <div class="main__table-text main__table-text--red">Hide</div>
+                                    @endif
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <div class="main__table-text">25</div>
-                                </td>
-                                <td>
-                                    <div class="main__table-text"><a href="#">Benched</a></div>
-                                </td>
-                                <td>
-                                    <div class="main__table-text">Movie</div>
-                                </td>
-                                <td>
-                                    <div class="main__table-text main__table-text--green">Visible</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="main__table-text">24</div>
-                                </td>
-                                <td>
-                                    <div class="main__table-text"><a href="#">Whitney</a></div>
-                                </td>
-                                <td>
-                                    <div class="main__table-text">TV Show</div>
-                                </td>
-                                <td>
-                                    <div class="main__table-text main__table-text--green">Visible</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="main__table-text">23</div>
-                                </td>
-                                <td>
-                                    <div class="main__table-text"><a href="#">Blindspotting 2</a></div>
-                                </td>
-                                <td>
-                                    <div class="main__table-text">TV Show</div>
-                                </td>
-                                <td>
-                                    <div class="main__table-text main__table-text--green">Visible</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="main__table-text">22</div>
-                                </td>
-                                <td>
-                                    <div class="main__table-text"><a href="#">Blindspotting</a></div>
-                                </td>
-                                <td>
-                                    <div class="main__table-text">TV Show</div>
-                                </td>
-                                <td>
-                                    <div class="main__table-text main__table-text--green">Visible</div>
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
