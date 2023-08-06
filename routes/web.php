@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MasterGenreController;
 use App\Http\Controllers\MasterNegaraController;
 use App\Http\Controllers\MoviesController;
+use App\Http\Controllers\UsersController;
 
 Route::redirect('/', '/dashboard');
 
@@ -16,6 +17,8 @@ Route::get('/movies', [MoviesController::class, 'index'])->name('movies.index');
 Route::get('/movies/add', [MoviesController::class, 'add'])->name('movies.add');
 Route::post('/movies/add', [MoviesController::class, 'store'])->name('movies.store');
 Route::delete('/movies/{id}', [MoviesController::class, 'destroy'])->name('movies.destroy');
+
+Route::get('/users', [UsersController::class, 'index'])->name('users.index');
 
 Route::controller(MasterNegaraController::class)->prefix('master')->group(function () {
     Route::get('/negara', 'index')->name('negara.index');
