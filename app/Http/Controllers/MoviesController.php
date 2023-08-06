@@ -38,8 +38,8 @@ class MoviesController extends Controller
             'negara_id' => 'required|exists:master_negara,id',
             'genre_id' => 'required|exists:master_genre,id',
             'quality_id' => 'required|exists:master_quality,id',
-            'cover' => 'required|file',
-            'foto' => 'required|file',
+            'cover' => 'file',
+            'foto' => 'file',
             'film' => 'required|string',
             'status' => 'required|in:1,0'
         ]);
@@ -56,14 +56,14 @@ class MoviesController extends Controller
         $movie->status = $request->input('status');
 
         if ($request->hasFile('cover')) {
-            $coverPath = $request->file('cover')->store('covers');
+            $coverPath = $request->file('cover')->store('covers', 'public');
             $movie->cover = $coverPath;
         } else {
             $movie->cover = 'covers/default.jpg';
         }
 
         if ($request->hasFile('foto')) {
-            $fotoPath = $request->file('foto')->store('fotos');
+            $fotoPath = $request->file('foto')->store('fotos', 'public');
             $movie->foto = $fotoPath;
         } else {
             $movie->foto = 'fotos/default.jpg';
