@@ -40,7 +40,7 @@ class MoviesController extends Controller
             'quality_id' => 'required|exists:master_quality,id',
             'cover' => 'file',
             'foto' => 'file',
-            'film' => 'required|string',
+            'film' => 'required',
             'status' => 'required|in:1,0'
         ]);
 
@@ -69,9 +69,13 @@ class MoviesController extends Controller
             $movie->foto = 'fotos/default.jpg';
         }
 
-        if ($request->hasFile('video') && $request->input('type_film') === 'video') {
-            $videoPath = $request->file('video')->store('videos');
-            $movie->film = $videoPath;
+        $typeFilm = $request->input('type_film');
+
+        if ($typeFilm === 'video') {
+            if ($request->hasFile('film')) {
+                $filmPath = $request->file('film')->store('films', 'public');
+                $movie->film = $filmPath;
+            }
         } else {
             $movie->film = $request->input('film');
         }
