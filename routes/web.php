@@ -1,15 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use App\Http\Controllers\AuthController;
 
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\MoviesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MasterGenreController;
 use App\Http\Controllers\MasterNegaraController;
-use App\Http\Controllers\MoviesController;
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\MasterQualityController;
 
 Route::redirect('/', '/dashboard');
+
+Route::get('/signup', [AuthController::class, 'signup'])->name('auth.signup');
+Route::get('/signin', [AuthController::class, 'signin'])->name('auth.signin');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
