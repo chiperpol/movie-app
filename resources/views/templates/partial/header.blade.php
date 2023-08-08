@@ -6,6 +6,7 @@
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="{{ asset('admin') }}/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="{{ asset('admin') }}/css/bootstrap.min.css">
 	<link rel="stylesheet" href="{{ asset('admin') }}/css/bootstrap-grid.min.css">
 	<link rel="stylesheet" href="{{ asset('admin') }}/css/magnific-popup.css">
 	<link rel="stylesheet" href="{{ asset('admin') }}/css/select2.min.css">
