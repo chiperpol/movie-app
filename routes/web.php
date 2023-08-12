@@ -27,7 +27,9 @@ Route::get('/movies/add', [MoviesController::class, 'add'])->name('movies.add');
 Route::post('/movies/add', [MoviesController::class, 'store'])->name('movies.store')->middleware('auth');
 Route::delete('/movies/{id}', [MoviesController::class, 'destroy'])->name('movies.destroy');
 
-Route::get('/users', [UsersController::class, 'index'])->name('users.index');
+Route::get('/users', [UsersController::class, 'index'])->name('users.index')->middleware('auth');
+Route::get('/users/add', [UsersController::class, 'add'])->name('users.add')->middleware('auth');
+Route::post('/users/add', [UsersController::class, 'store'])->name('users.store');
 
 Route::controller(MasterNegaraController::class)->prefix('master')->middleware('auth')->group(function () {
     Route::get('/negara', 'index')->name('negara.index');
